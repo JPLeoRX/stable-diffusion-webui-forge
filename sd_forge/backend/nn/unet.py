@@ -2,7 +2,7 @@ import math
 import torch
 from torch import nn
 from einops import rearrange, repeat
-from backend.attention import attention_function
+from sd_forge.backend.attention import attention_function
 from diffusers.configuration_utils import ConfigMixin, register_to_config
 
 

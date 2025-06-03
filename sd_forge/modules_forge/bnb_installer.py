@@ -1,6 +1,6 @@
 import pkg_resources
 
-from modules.launch_utils import run_pip
+from sd_forge.modules.launch_utils import run_pip
 
 target_bitsandbytes_version = '0.45.3'
 

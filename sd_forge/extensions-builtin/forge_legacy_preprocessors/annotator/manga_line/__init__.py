@@ -9,7 +9,7 @@ import sys
 
 import numpy as np
 from einops import rearrange
-from modules import devices
+from sd_forge.modules import devices
 from annotator.annotator_path import models_path
 
 

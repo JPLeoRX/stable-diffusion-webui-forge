@@ -8,7 +8,7 @@ from typing import Optional, Any
 from fastapi import FastAPI
 from gradio import Blocks
 
-from modules import errors, timer, extensions, shared, util
+from sd_forge.modules import errors, timer, extensions, shared, util
 
 
 def report_exception(c, job):

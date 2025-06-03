@@ -19,7 +19,7 @@ class StableDiffusionModelHijack:
         pass
 
     def get_prompt_lengths(self, text, cond_stage_model):
-        from modules import shared
+        from sd_forge.modules import shared
         return shared.sd_model.get_prompt_lengths_on_ui(text)
 
     def redo_hijack(self, m):

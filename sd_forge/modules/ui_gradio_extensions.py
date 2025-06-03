@@ -1,8 +1,8 @@
 import os
 import gradio as gr
 
-from modules import localization, shared, scripts, util
-from modules.paths import script_path, data_path
+from sd_forge.modules import localization, shared, scripts, util
+from sd_forge.modules.paths import script_path, data_path
 
 
 def webpath(fn):

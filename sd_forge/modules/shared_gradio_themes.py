@@ -2,8 +2,8 @@ import os
 
 import gradio as gr
 
-from modules import errors, shared
-from modules.paths_internal import script_path
+from sd_forge.modules import errors, shared
+from sd_forge.modules.paths_internal import script_path
 
 
 # https://huggingface.co/datasets/freddyaboulton/gradio-theme-subdomains/resolve/main/subdomains.json

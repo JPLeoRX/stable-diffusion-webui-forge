@@ -19,9 +19,9 @@ import string
 import json
 import hashlib
 
-from modules import sd_samplers, shared, script_callbacks, errors, stealth_infotext
-from modules.paths_internal import roboto_ttf_file
-from modules.shared import opts
+from sd_forge.modules import sd_samplers, shared, script_callbacks, errors, stealth_infotext
+from sd_forge.modules.paths_internal import roboto_ttf_file
+from sd_forge.modules.shared import opts
 
 LANCZOS = (Image.Resampling.LANCZOS if hasattr(Image, 'Resampling') else Image.LANCZOS)
 
@@ -431,7 +431,7 @@ class FilenameGenerator:
     def get_vae_filename(self):
         """Get the name of the VAE file."""
 
-        import modules.sd_vae as sd_vae
+        import sd_forge.modules.sd_vae as sd_vae
 
         if sd_vae.loaded_vae_file is None:
             return "NoneType"

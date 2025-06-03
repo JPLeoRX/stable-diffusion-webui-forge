@@ -1,5 +1,5 @@
-from modules import sd_samplers_kdiffusion, sd_samplers_common
-from backend.modules import k_diffusion_extra
+from sd_forge.modules import sd_samplers_kdiffusion, sd_samplers_common
+from sd_forge.backend.modules import k_diffusion_extra
 
 
 class AlterSampler(sd_samplers_kdiffusion.KDiffusionSampler):

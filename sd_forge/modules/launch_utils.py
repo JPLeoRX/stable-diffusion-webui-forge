@@ -14,12 +14,12 @@ from functools import lru_cache
 from typing import NamedTuple
 from pathlib import Path
 
-from modules import cmd_args, errors
-from modules.paths_internal import script_path, extensions_dir, extensions_builtin_dir
-from modules.timer import startup_timer
-from modules import logging_config
-from modules_forge import forge_version
-from modules_forge.config import always_disabled_extensions
+from sd_forge.modules import cmd_args, errors
+from sd_forge.modules.paths_internal import script_path, extensions_dir, extensions_builtin_dir
+from sd_forge.modules.timer import startup_timer
+from sd_forge.modules import logging_config
+from sd_forge.modules_forge import forge_version
+from sd_forge.modules_forge.config import always_disabled_extensions
 
 
 args, _ = cmd_args.parser.parse_known_args()

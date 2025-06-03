@@ -2,7 +2,7 @@ import logging
 import copy
 import sys
 
-from modules import shared
+from sd_forge.modules import shared
 
 
 class ColoredFormatter(logging.Formatter):

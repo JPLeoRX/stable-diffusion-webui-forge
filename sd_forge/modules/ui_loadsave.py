@@ -3,8 +3,8 @@ import os
 
 import gradio as gr
 
-from modules import errors
-from modules.ui_components import ToolButton, InputAccordion
+from sd_forge.modules import errors
+from sd_forge.modules.ui_components import ToolButton, InputAccordion
 
 
 def radio_choices(comp):  # gradio 3.41 changes choices from list of values to list of pairs

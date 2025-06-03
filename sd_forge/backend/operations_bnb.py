@@ -3,7 +3,7 @@
 import torch
 import bitsandbytes as bnb
 
-from backend import utils, memory_management
+from sd_forge.backend import utils, memory_management
 from bitsandbytes.nn.modules import Params4bit, QuantState
 from bitsandbytes.functional import dequantize_4bit
 

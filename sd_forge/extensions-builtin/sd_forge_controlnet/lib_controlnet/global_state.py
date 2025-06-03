@@ -2,8 +2,8 @@ import os.path
 import stat
 from collections import OrderedDict
 
-from modules import shared, sd_models
-from modules_forge.shared import controlnet_dir, supported_preprocessors
+from sd_forge.modules import shared, sd_models
+from sd_forge.modules_forge.shared import controlnet_dir, supported_preprocessors
 
 from typing import Dict, Tuple, List
 

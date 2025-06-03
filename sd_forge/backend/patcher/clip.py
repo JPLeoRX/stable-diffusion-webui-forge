@@ -1,6 +1,6 @@
-from backend import memory_management
-from backend.patcher.base import ModelPatcher
-from backend.nn.base import ModuleDict, ObjectDict
+from sd_forge.backend import memory_management
+from sd_forge.backend.patcher.base import ModelPatcher
+from sd_forge.backend.nn.base import ModuleDict, ObjectDict
 
 
 class JointTextEncoder(ModuleDict):

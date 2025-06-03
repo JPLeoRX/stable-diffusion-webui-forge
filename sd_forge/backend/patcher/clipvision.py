@@ -1,9 +1,9 @@
 import torch
 
-from backend.utils import load_torch_file
-from backend.state_dict import transformers_convert, state_dict_prefix_replace
-from backend import operations, memory_management
-from backend.patcher.base import ModelPatcher
+from sd_forge.backend.utils import load_torch_file
+from sd_forge.backend.state_dict import transformers_convert, state_dict_prefix_replace
+from sd_forge.backend import operations, memory_management
+from sd_forge.backend.patcher.base import ModelPatcher
 from transformers import modeling_utils, CLIPVisionConfig, CLIPVisionModelWithProjection
 
 

@@ -1,11 +1,11 @@
 import torch
 import tqdm
-import k_diffusion.sampling
+import sd_forge.k_diffusion.sampling
 import numpy as np
 
-from modules import shared
-from modules.models.diffusion.uni_pc import uni_pc
-from modules.torch_utils import float64
+from sd_forge.modules import shared
+from sd_forge.modules.models.diffusion.uni_pc import uni_pc
+from sd_forge.modules.torch_utils import float64
 
 
 @torch.no_grad()
@@ -31,7 +31,7 @@ def ddim(model, x, timesteps, extra_args=None, callback=None, disable=None, eta=
 
         pred_x0 = (x - sqrt_one_minus_at * e_t) / a_t.sqrt()
         dir_xt = (1. - a_prev - sigma_t ** 2).sqrt() * e_t
-        noise = sigma_t * k_diffusion.sampling.torch.randn_like(x)
+        noise = sigma_t * sd_forge.k_diffusion.sampling.torch.randn_like(x)
         x = a_prev.sqrt() * pred_x0 + dir_xt + noise
 
         if callback is not None:
@@ -71,7 +71,7 @@ def ddim_cfgpp(model, x, timesteps, extra_args=None, callback=None, disable=None
 
         pred_x0 = (x - sqrt_one_minus_at * e_t) / a_t.sqrt()
         dir_xt = (1. - a_prev - sigma_t ** 2).sqrt() * last_noise_uncond
-        noise = sigma_t * k_diffusion.sampling.torch.randn_like(x)
+        noise = sigma_t * sd_forge.k_diffusion.sampling.torch.randn_like(x)
         x = a_prev.sqrt() * pred_x0 + dir_xt + noise
 
         if callback is not None:

@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import functools
 import logging
-from modules import sd_samplers_kdiffusion, sd_samplers_timesteps, sd_samplers_lcm, shared, sd_samplers_common, sd_schedulers
+from sd_forge.modules import sd_samplers_kdiffusion, sd_samplers_timesteps, sd_samplers_lcm, shared, sd_samplers_common, sd_schedulers
 
 # imports for functions that previously were here and are used by other modules
-from modules.sd_samplers_common import samples_to_image_grid, sample_to_image  # noqa: F401
-from modules_forge import alter_samplers
+from sd_forge.modules.sd_samplers_common import samples_to_image_grid, sample_to_image  # noqa: F401
+from sd_forge.modules_forge import alter_samplers
 
 all_samplers = [
     *sd_samplers_kdiffusion.samplers_data_k_diffusion,

@@ -8,7 +8,7 @@ import gradio as gr
 
 from PIL import PngImagePlugin
 
-from modules import shared
+from sd_forge.modules import shared
 
 
 Savedfile = namedtuple("Savedfile", ["name"])

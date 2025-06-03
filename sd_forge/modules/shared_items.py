@@ -1,37 +1,37 @@
 import html
 import sys
 
-from modules import script_callbacks, scripts, ui_components
-from modules.options import OptionHTML, OptionInfo
-from modules.shared_cmd_options import cmd_opts
+from sd_forge.modules import script_callbacks, scripts, ui_components
+from sd_forge.modules.options import OptionHTML, OptionInfo
+from sd_forge.modules.shared_cmd_options import cmd_opts
 
 
 def realesrgan_models_names():
-    import modules.realesrgan_model
-    return [x.name for x in modules.realesrgan_model.get_realesrgan_models(None)]
+    import sd_forge.modules.realesrgan_model
+    return [x.name for x in sd_forge.modules.realesrgan_model.get_realesrgan_models(None)]
 
 
 def dat_models_names():
-    import modules.dat_model
-    return [x.name for x in modules.dat_model.get_dat_models(None)]
+    import sd_forge.modules.dat_model
+    return [x.name for x in sd_forge.modules.dat_model.get_dat_models(None)]
 
 
 def postprocessing_scripts():
-    import modules.scripts
+    import sd_forge.modules.scripts
 
-    return modules.scripts.scripts_postproc.scripts
+    return sd_forge.modules.scripts.scripts_postproc.scripts
 
 
 def sd_vae_items():
-    import modules.sd_vae
+    import sd_forge.modules.sd_vae
 
-    return ["Automatic", "None"] + list(modules.sd_vae.vae_dict)
+    return ["Automatic", "None"] + list(sd_forge.modules.sd_vae.vae_dict)
 
 
 def refresh_vae_list():
-    import modules.sd_vae
+    import sd_forge.modules.sd_vae
 
-    modules.sd_vae.refresh_vae_list()
+    sd_forge.modules.sd_vae.refresh_vae_list()
 
 
 def cross_attention_optimizations():
@@ -39,41 +39,41 @@ def cross_attention_optimizations():
 
 
 def sd_unet_items():
-    import modules.sd_unet
+    import sd_forge.modules.sd_unet
 
-    return ["Automatic"] + [x.label for x in modules.sd_unet.unet_options] + ["None"]
+    return ["Automatic"] + [x.label for x in sd_forge.modules.sd_unet.unet_options] + ["None"]
 
 
 def refresh_unet_list():
-    import modules.sd_unet
+    import sd_forge.modules.sd_unet
 
-    modules.sd_unet.list_unets()
+    sd_forge.modules.sd_unet.list_unets()
 
 
 def list_checkpoint_tiles(use_short=False):
-    import modules.sd_models
-    return modules.sd_models.checkpoint_tiles(use_short)
+    import sd_forge.modules.sd_models
+    return sd_forge.modules.sd_models.checkpoint_tiles(use_short)
 
 
 def refresh_checkpoints():
-    import modules.sd_models
-    return modules.sd_models.list_models()
+    import sd_forge.modules.sd_models
+    return sd_forge.modules.sd_models.list_models()
 
 
 def list_samplers():
-    import modules.sd_samplers
-    return modules.sd_samplers.all_samplers
+    import sd_forge.modules.sd_samplers
+    return sd_forge.modules.sd_samplers.all_samplers
 
 
 def reload_hypernetworks():
-    from modules.hypernetworks import hypernetwork
-    from modules import shared
+    from sd_forge.modules.hypernetworks import hypernetwork
+    from sd_forge.modules import shared
 
     shared.hypernetworks = hypernetwork.list_hypernetworks(cmd_opts.hypernetwork_dir)
 
 
 def get_infotext_names():
-    from modules import infotext_utils, shared
+    from sd_forge.modules import infotext_utils, shared
     res = {}
 
     for info in shared.opts.data_labels.values():
@@ -107,7 +107,7 @@ ui_reorder_categories_builtin_items = [
 
 
 def ui_reorder_categories():
-    from modules import scripts
+    from sd_forge.modules import scripts
 
     yield from ui_reorder_categories_builtin_items
 
@@ -170,15 +170,15 @@ class Shared(sys.modules[__name__].__class__):
 
     @property
     def sd_model(self):
-        import modules.sd_models
+        import sd_forge.modules.sd_models
 
-        return modules.sd_models.model_data.get_sd_model()
+        return sd_forge.modules.sd_models.model_data.get_sd_model()
 
     @sd_model.setter
     def sd_model(self, value):
-        import modules.sd_models
+        import sd_forge.modules.sd_models
 
-        modules.sd_models.model_data.set_sd_model(value)
+        sd_forge.modules.sd_models.model_data.set_sd_model(value)
 
 
-sys.modules['modules.shared'].__class__ = Shared
+sys.modules['sd_forge.modules.shared'].__class__ = Shared

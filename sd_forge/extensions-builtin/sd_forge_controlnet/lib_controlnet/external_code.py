@@ -2,10 +2,10 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import List, Optional, Union, Dict, TypedDict
 import numpy as np
-from modules import shared
+from sd_forge.modules import shared
 from lib_controlnet.logging import logger
 from lib_controlnet.enums import InputMode, HiResFixOption
-from modules.api import api
+from sd_forge.modules.api import api
 
 
 def get_api_version() -> int:

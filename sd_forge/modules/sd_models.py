@@ -14,14 +14,14 @@ from urllib import request
 import gc
 import contextlib
 
-from modules import paths, shared, modelloader, devices, script_callbacks, sd_vae, sd_disable_initialization, errors, hashes, sd_models_config, sd_unet, sd_models_xl, cache, extra_networks, processing, lowvram, sd_hijack, patches
-from modules.shared import opts, cmd_opts
-from modules.timer import Timer
+from sd_forge.modules import paths, shared, modelloader, devices, script_callbacks, sd_vae, sd_disable_initialization, errors, hashes, sd_models_config, sd_unet, sd_models_xl, cache, extra_networks, processing, lowvram, sd_hijack, patches
+from sd_forge.modules.shared import opts, cmd_opts
+from sd_forge.modules.timer import Timer
 import numpy as np
-from backend.loader import forge_loader
-from backend import memory_management
-from backend.args import dynamic_args
-from backend.utils import load_torch_file
+from sd_forge.backend.loader import forge_loader
+from sd_forge.backend import memory_management
+from sd_forge.backend.args import dynamic_args
+from sd_forge.backend.utils import load_torch_file
 
 
 model_dir = "Stable-diffusion"
@@ -459,7 +459,7 @@ def apply_token_merging(sd_model, token_merging_ratio):
 
     print(f'token_merging_ratio = {token_merging_ratio}')
 
-    from backend.misc.tomesd import TomePatcher
+    from sd_forge.backend.misc.tomesd import TomePatcher
 
     sd_model.forge_objects.unet = TomePatcher().patch(
         model=sd_model.forge_objects.unet,

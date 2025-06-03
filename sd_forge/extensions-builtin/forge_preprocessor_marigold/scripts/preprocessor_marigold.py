@@ -1,6 +1,6 @@
-from modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
-from modules_forge.shared import preprocessor_dir, add_supported_preprocessor
-from modules_forge.utils import resize_image_with_pad
+from sd_forge.modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
+from sd_forge.modules_forge.shared import preprocessor_dir, add_supported_preprocessor
+from sd_forge.modules_forge.utils import resize_image_with_pad
 
 
 import os
@@ -9,8 +9,8 @@ import numpy as np
 
 from marigold.model.marigold_pipeline import MarigoldPipeline
 from huggingface_hub import snapshot_download
-from modules_forge.diffusers_patcher import DiffusersModelPatcher
-from modules_forge.utils import numpy_to_pytorch, HWC3
+from sd_forge.modules_forge.diffusers_patcher import DiffusersModelPatcher
+from sd_forge.modules_forge.utils import numpy_to_pytorch, HWC3
 
 
 class PreprocessorMarigold(Preprocessor):

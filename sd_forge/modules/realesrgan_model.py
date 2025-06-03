@@ -1,10 +1,10 @@
 import os
 
-from modules import modelloader, errors
-from modules.shared import cmd_opts, opts
-from modules.upscaler import Upscaler, UpscalerData
-from modules.upscaler_utils import upscale_with_model
-from modules_forge.utils import prepare_free_memory
+from sd_forge.modules import modelloader, errors
+from sd_forge.modules.shared import cmd_opts, opts
+from sd_forge.modules.upscaler import Upscaler, UpscalerData
+from sd_forge.modules.upscaler_utils import upscale_with_model
+from sd_forge.modules_forge.utils import prepare_free_memory
 
 
 class UpscalerRealESRGAN(Upscaler):

@@ -1,5 +1,5 @@
-from modules import extra_networks, shared
-from modules.hypernetworks import hypernetwork
+from sd_forge.modules import extra_networks, shared
+from sd_forge.modules.hypernetworks import hypernetwork
 
 
 class ExtraNetworkHypernet(extra_networks.ExtraNetwork):

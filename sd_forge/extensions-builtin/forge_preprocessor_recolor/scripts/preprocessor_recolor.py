@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-from modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
-from modules_forge.shared import add_supported_preprocessor
+from sd_forge.modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
+from sd_forge.modules_forge.shared import add_supported_preprocessor
 
 
 class PreprocessorRecolor(Preprocessor):

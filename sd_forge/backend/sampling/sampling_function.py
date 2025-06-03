@@ -7,11 +7,11 @@ import torch
 import math
 import collections
 
-from backend import memory_management
-from backend.sampling.condition import Condition, compile_conditions, compile_weighted_conditions
-from backend.operations import cleanup_cache
-from backend.args import dynamic_args, args
-from backend import utils
+from sd_forge.backend import memory_management
+from sd_forge.backend.sampling.condition import Condition, compile_conditions, compile_weighted_conditions
+from sd_forge.backend.operations import cleanup_cache
+from sd_forge.backend.args import dynamic_args, args
+from sd_forge.backend import utils
 
 
 def get_area_and_mult(conds, x_in, timestep_in):

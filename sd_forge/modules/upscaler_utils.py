@@ -6,7 +6,7 @@ import torch
 import tqdm
 from PIL import Image
 
-from modules import devices, images, shared, torch_utils
+from sd_forge.modules import devices, images, shared, torch_utils
 
 logger = logging.getLogger(__name__)
 

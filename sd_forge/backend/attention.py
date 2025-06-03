@@ -2,9 +2,9 @@ import math
 import torch
 import einops
 
-from backend.args import args
-from backend import memory_management
-from backend.misc.sub_quadratic_attention import efficient_dot_product_attention
+from sd_forge.backend.args import args
+from sd_forge.backend import memory_management
+from sd_forge.backend.misc.sub_quadratic_attention import efficient_dot_product_attention
 
 
 BROKEN_XFORMERS = False

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import torch
 import os
-from modules import devices, shared
+from sd_forge.modules import devices, shared
 from annotator.annotator_path import models_path
 from torchvision.transforms import transforms
 
@@ -41,7 +41,7 @@ def apply_leres(input_image, thr_a, thr_b, boost=False):
         if os.path.exists(old_model_path):
             model_path = old_model_path
         elif not os.path.exists(model_path):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(remote_model_path_leres, model_dir=base_model_path)
 
         if torch.cuda.is_available():
@@ -56,7 +56,7 @@ def apply_leres(input_image, thr_a, thr_b, boost=False):
     if boost and pix2pixmodel is None:
         pix2pixmodel_path = os.path.join(base_model_path, "latest_net_G.pth")
         if not os.path.exists(pix2pixmodel_path):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(remote_model_path_pix2pix, model_dir=base_model_path)
 
         opt = TestOptions().parse()

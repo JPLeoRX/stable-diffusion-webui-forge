@@ -13,10 +13,10 @@
 import contextlib
 
 from annotator.util import HWC3
-from backend.operations import automatic_memory_management
+from sd_forge.backend.operations import automatic_memory_management
 from legacy_preprocessors.preprocessor_compiled import legacy_preprocessors
-from modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
-from modules_forge.shared import add_supported_preprocessor
+from sd_forge.modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
+from sd_forge.modules_forge.shared import add_supported_preprocessor
 
 
 ###

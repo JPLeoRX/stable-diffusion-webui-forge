@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 import gradio as gr
 
-from modules import shared, paths, script_callbacks, extensions, script_loading, scripts_postprocessing, errors, timer, util
+from sd_forge.modules import shared, paths, script_callbacks, extensions, script_loading, scripts_postprocessing, errors, timer, util
 
 topological_sort = util.topological_sort
 

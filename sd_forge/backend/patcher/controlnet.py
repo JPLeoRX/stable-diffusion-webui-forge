@@ -1,11 +1,11 @@
 import torch
 import math
 
-from backend.misc import image_resize
-from backend import memory_management, state_dict, utils
-from backend.nn.cnets import cldm, t2i_adapter
-from backend.patcher.base import ModelPatcher
-from backend.operations import using_forge_operations, ForgeOperations, main_stream_worker, weights_manual_cast
+from sd_forge.backend.misc import image_resize
+from sd_forge.backend import memory_management, state_dict, utils
+from sd_forge.backend.nn.cnets import cldm, t2i_adapter
+from sd_forge.backend.patcher.base import ModelPatcher
+from sd_forge.backend.operations import using_forge_operations, ForgeOperations, main_stream_worker, weights_manual_cast
 
 
 def apply_controlnet_advanced(

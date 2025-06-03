@@ -4,10 +4,10 @@ from typing import Dict, Optional, Tuple, List, Union
 import cv2
 import torch
 
-import modules.scripts as scripts
-from modules import shared, script_callbacks, masking, images
-from modules.ui_components import InputAccordion
-from modules.api.api import decode_base64_to_image
+import sd_forge.modules.scripts as scripts
+from sd_forge.modules import shared, script_callbacks, masking, images
+from sd_forge.modules.ui_components import InputAccordion
+from sd_forge.modules.api.api import decode_base64_to_image
 import gradio as gr
 
 from lib_controlnet import global_state, external_code
@@ -20,7 +20,7 @@ from lib_controlnet.logging import logger
 from modules.processing import StableDiffusionProcessingImg2Img, StableDiffusionProcessingTxt2Img, \
     StableDiffusionProcessing
 from lib_controlnet.infotext import Infotext
-from modules_forge.utils import HWC3, numpy_to_pytorch
+from sd_forge.modules_forge.utils import HWC3, numpy_to_pytorch
 from lib_controlnet.enums import HiResFixOption
 from lib_controlnet.api import controlnet_api
 
@@ -28,8 +28,8 @@ import numpy as np
 import functools
 
 from PIL import Image
-from modules_forge.shared import try_load_supported_control_model
-from modules_forge.supported_controlnet import ControlModelPatcher
+from sd_forge.modules_forge.shared import try_load_supported_control_model
+from sd_forge.modules_forge.supported_controlnet import ControlModelPatcher
 
 # Gradio 3.32 bug fix
 import tempfile

@@ -1,8 +1,8 @@
 import gradio as gr
-from modules import scripts, shared, ui_common, postprocessing, call_queue, ui_toprow
-import modules.infotext_utils as parameters_copypaste
-from modules.ui_components import ResizeHandleRow
-from modules_forge.forge_canvas.canvas import ForgeCanvas
+from sd_forge.modules import scripts, shared, ui_common, postprocessing, call_queue, ui_toprow
+import sd_forge.modules.infotext_utils as parameters_copypaste
+from sd_forge.modules.ui_components import ResizeHandleRow
+from sd_forge.modules_forge.forge_canvas.canvas import ForgeCanvas
 
 
 def create_ui():

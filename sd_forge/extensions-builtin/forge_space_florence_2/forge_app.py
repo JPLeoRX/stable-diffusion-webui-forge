@@ -1,4 +1,4 @@
-import spaces
+import sd_forge.spaces
 import gradio as gr
 from transformers import AutoProcessor, AutoModelForCausalLM
 import os
@@ -13,10 +13,10 @@ import matplotlib.patches as patches
 import random
 import numpy as np
 
-from modules import shared
+from sd_forge.modules import shared
 
 
-with spaces.capture_gpu_object() as gpu_object:
+with sd_forge.spaces.capture_gpu_object() as gpu_object:
     models = {
         # 'microsoft/Florence-2-large-ft': AutoModelForCausalLM.from_pretrained('microsoft/Florence-2-large-ft', attn_implementation='sdpa', trust_remote_code=True).to("cuda").eval(),
         'microsoft/Florence-2-large': AutoModelForCausalLM.from_pretrained('microsoft/Florence-2-large', trust_remote_code=True).to("cuda").eval(),
@@ -43,7 +43,7 @@ def fig_to_pil(fig):
     buf.seek(0)
     return Image.open(buf)
 
-@spaces.GPU(gpu_objects=[gpu_object], manual_load=False)
+@sd_forge.spaces.GPU(gpu_objects=[gpu_object], manual_load=False)
 def run_example(task_prompt, image, text_input=None, model_id='microsoft/Florence-2-large'):
     model = models[model_id]
     processor = processors[model_id]
@@ -223,7 +223,7 @@ def process_image(image, task_prompt, text_input=None, model_id='microsoft/Flore
         return "", None  # Return empty string and None for unknown task prompts
 
 
-@spaces.GPU(gpu_objects=[gpu_object], manual_load=False)
+@sd_forge.spaces.GPU(gpu_objects=[gpu_object], manual_load=False)
 def run_example_batch(directory, task_prompt, model_id='microsoft/Florence-2-large', save_caption=False, prefix=""):
     model = models[model_id]
     processor = processors[model_id]
@@ -327,8 +327,8 @@ with gr.Blocks(css=css) as demo:
 
         gr.Examples(
             examples=[
-                [spaces.convert_root_path() + "image1.jpg", "More Detailed Caption"],
-                [spaces.convert_root_path() + "image2.jpg", 'OCR with Region']
+                [sd_forge.spaces.convert_root_path() + "image1.jpg", "More Detailed Caption"],
+                [sd_forge.spaces.convert_root_path() + "image2.jpg", 'OCR with Region']
             ],
             inputs=[input_img, task_prompt],
             outputs=[output_text, output_img],

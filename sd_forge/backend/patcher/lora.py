@@ -1,9 +1,9 @@
 import torch
 
-import packages_3rdparty.webui_lora_collection.lora as lora_utils_webui
-import packages_3rdparty.comfyui_lora_collection.lora as lora_utils_comfyui
+import sd_forge.packages_3rdparty.webui_lora_collection.lora as lora_utils_webui
+import sd_forge.packages_3rdparty.comfyui_lora_collection.lora as lora_utils_comfyui
 
-from backend import memory_management, utils
+from sd_forge.backend import memory_management, utils
 
 
 extra_weight_calculators = {}

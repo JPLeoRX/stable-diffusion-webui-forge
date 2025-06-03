@@ -6,12 +6,12 @@ Thin wrapper so you can:
     img = forge.txt2img(...)
 """
 
-# from modules import initialize_util
-# from modules import initialize
-# from modules_forge.initialization import initialize_forge
-from modules.esrgan_model import UpscalerESRGAN
+# from .modules import initialize_util
+# from .modules import initialize
+# from .modules_forge.initialization import initialize_forge
+# from .modules.esrgan_model import UpscalerESRGAN
 
 __all__ = [
     # initialize_util, initialize, initialize_forge,
-    UpscalerESRGAN,
+    # UpscalerESRGAN,
 ]

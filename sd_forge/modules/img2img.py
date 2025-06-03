@@ -5,16 +5,16 @@ from pathlib import Path
 from PIL import Image, ImageOps, ImageFilter, ImageEnhance, UnidentifiedImageError
 import gradio as gr
 
-from modules import images
-from modules.infotext_utils import create_override_settings_dict, parse_generation_parameters
-from modules.processing import Processed, StableDiffusionProcessingImg2Img, process_images
-from modules.shared import opts, state
-from modules.sd_models import get_closet_checkpoint_match
-import modules.shared as shared
-import modules.processing as processing
-from modules.ui import plaintext_to_html
-import modules.scripts
-from modules_forge import main_thread
+from sd_forge.modules import images
+from sd_forge.modules.infotext_utils import create_override_settings_dict, parse_generation_parameters
+from sd_forge.modules.processing import Processed, StableDiffusionProcessingImg2Img, process_images
+from sd_forge.modules.shared import opts, state
+from sd_forge.modules.sd_models import get_closet_checkpoint_match
+import sd_forge.modules.shared as shared
+import sd_forge.modules.processing as processing
+from sd_forge.modules.ui import plaintext_to_html
+import sd_forge.modules.scripts
+from sd_forge.modules_forge import main_thread
 
 
 def process_batch(p, input, output_dir, inpaint_mask_dir, args, to_scale=False, scale_by=1.0, use_png_info=False, png_info_props=None, png_info_dir=None):
@@ -127,7 +127,7 @@ def process_batch(p, input, output_dir, inpaint_mask_dir, args, to_scale=False, 
             filename_pattern = f'{image_path.stem}-[generation_number]' if p.n_iter > 1 or p.batch_size > 1 else f'{image_path.stem}'
             p.override_settings['samples_filename_pattern'] = filename_pattern
 
-        proc = modules.scripts.scripts_img2img.run(p, *args)
+        proc = sd_forge.modules.scripts.scripts_img2img.run(p, *args)
 
         if proc is None:
             proc = process_images(p)
@@ -220,7 +220,7 @@ def img2img_function(id_task: str, request: gr.Request, mode: int, prompt: str, 
         distilled_cfg_scale=distilled_cfg_scale
     )
 
-    p.scripts = modules.scripts.scripts_img2img
+    p.scripts = sd_forge.modules.scripts.scripts_img2img
     p.script_args = args
 
     p.user = request.username
@@ -243,7 +243,7 @@ def img2img_function(id_task: str, request: gr.Request, mode: int, prompt: str, 
             if processed is None:
                 processed = Processed(p, [], p.seed, "")
         else:
-            processed = modules.scripts.scripts_img2img.run(p, *args)
+            processed = sd_forge.modules.scripts.scripts_img2img.run(p, *args)
             if processed is None:
                 processed = process_images(p)
 

@@ -1,8 +1,8 @@
 import torch
 import copy
 
-from modules_forge.supported_preprocessor import PreprocessorClipVision, PreprocessorParameter
-from modules_forge.shared import add_supported_preprocessor
+from sd_forge.modules_forge.supported_preprocessor import PreprocessorClipVision, PreprocessorParameter
+from sd_forge.modules_forge.shared import add_supported_preprocessor
 
 
 def revision_conditioning_modifier(model, x, timestep, uncond, cond, cond_scale, model_options, seed):

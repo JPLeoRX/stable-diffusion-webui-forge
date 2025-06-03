@@ -1,9 +1,9 @@
 import gradio as gr
 
-from modules import scripts, sd_models
-from modules.infotext_utils import PasteField
-from modules.ui_common import create_refresh_button
-from modules.ui_components import InputAccordion
+from sd_forge.modules import scripts, sd_models
+from sd_forge.modules.infotext_utils import PasteField
+from sd_forge.modules.ui_common import create_refresh_button
+from sd_forge.modules.ui_components import InputAccordion
 
 
 class ScriptRefiner(scripts.ScriptBuiltinUI):

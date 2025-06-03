@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from einops import rearrange
 from .densepose import DensePoseMaskedColormapResultsVisualizer, _extract_i_from_iuvarr, densepose_chart_predictor_output_to_result_with_confidences
-from modules import devices
+from sd_forge.modules import devices
 from annotator.annotator_path import models_path
 import os
 
@@ -24,7 +24,7 @@ def apply_densepose(input_image, cmap="viridis"):
     if torchscript_model is None:
         model_path = os.path.join(model_dir, "densepose_r50_fpn_dl.torchscript")
         if not os.path.exists(model_path):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(remote_torchscript_path, model_dir=model_dir)
         torchscript_model = torch.jit.load(model_path, map_location="cpu").to(devices.get_device_for("controlnet")).eval()
     H, W  = input_image.shape[:2]

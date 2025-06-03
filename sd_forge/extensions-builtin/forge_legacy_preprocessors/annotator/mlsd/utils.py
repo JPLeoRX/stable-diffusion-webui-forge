@@ -14,7 +14,7 @@ import numpy as np
 import cv2
 import torch
 from  torch.nn import  functional as F
-from modules import devices
+from sd_forge.modules import devices
 
 
 def deccode_output_score_and_ptss(tpMap, topk_n = 200, ksize = 5):

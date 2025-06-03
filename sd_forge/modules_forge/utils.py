@@ -6,7 +6,7 @@ import random
 import string
 import cv2
 
-from backend import memory_management
+from sd_forge.backend import memory_management
 
 
 def prepare_free_memory(aggressive=False):
@@ -88,7 +88,7 @@ def numpy_to_pytorch(x):
 
 
 def write_images_to_mp4(frame_list: list, filename=None, fps=6):
-    from modules.paths_internal import default_output_dir
+    from sd_forge.modules.paths_internal import default_output_dir
 
     video_folder = os.path.join(default_output_dir, 'svd')
     os.makedirs(video_folder, exist_ok=True)
@@ -101,7 +101,7 @@ def write_images_to_mp4(frame_list: list, filename=None, fps=6):
     try:
         import av
     except ImportError:
-        from launch import run_pip
+        from sd_forge.launch import run_pip
         run_pip(
             "install imageio[pyav]",
             "imageio[pyav]",

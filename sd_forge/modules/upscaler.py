@@ -4,8 +4,8 @@ from abc import abstractmethod
 import PIL
 from PIL import Image
 
-import modules.shared
-from modules import modelloader, shared
+import sd_forge.modules.shared
+from sd_forge.modules import modelloader, shared
 
 LANCZOS = (Image.Resampling.LANCZOS if hasattr(Image, 'Resampling') else Image.LANCZOS)
 NEAREST = (Image.Resampling.NEAREST if hasattr(Image, 'Resampling') else Image.NEAREST)

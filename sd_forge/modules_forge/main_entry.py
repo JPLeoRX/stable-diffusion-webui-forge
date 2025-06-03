@@ -3,10 +3,10 @@ import torch
 import gradio as gr
 
 from gradio.context import Context
-from modules import shared_items, shared, ui_common, sd_models, processing, infotext_utils, paths, ui_loadsave
-from backend import memory_management, stream
-from backend.args import dynamic_args
-from modules.shared import cmd_opts
+from sd_forge.modules import shared_items, shared, ui_common, sd_models, processing, infotext_utils, paths, ui_loadsave
+from sd_forge.backend import memory_management, stream
+from sd_forge.backend.args import dynamic_args
+from sd_forge.modules.shared import cmd_opts
 
 
 total_vram = int(memory_management.total_vram)
@@ -218,7 +218,7 @@ def refresh_memory_management_settings(async_loading=None, inference_memory=None
 
 
 def refresh_model_loading_parameters():
-    from modules.sd_models import select_checkpoint, model_data
+    from sd_forge.modules.sd_models import select_checkpoint, model_data
 
     checkpoint_info = select_checkpoint()
 

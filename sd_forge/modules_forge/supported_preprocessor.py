@@ -1,13 +1,13 @@
 import cv2
 import torch
 
-from modules_forge.shared import add_supported_preprocessor, preprocessor_dir
-from backend import memory_management
-from backend.patcher.base import ModelPatcher
-from backend.patcher import clipvision
-from modules_forge.utils import resize_image_with_pad
-from modules.modelloader import load_file_from_url
-from modules_forge.utils import numpy_to_pytorch
+from sd_forge.modules_forge.shared import add_supported_preprocessor, preprocessor_dir
+from sd_forge.backend import memory_management
+from sd_forge.backend.patcher.base import ModelPatcher
+from sd_forge.backend.patcher import clipvision
+from sd_forge.modules_forge.utils import resize_image_with_pad
+from sd_forge.modules.modelloader import load_file_from_url
+from sd_forge.modules_forge.utils import numpy_to_pytorch
 
 
 class PreprocessorParameter:

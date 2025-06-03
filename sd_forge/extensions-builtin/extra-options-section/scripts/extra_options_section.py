@@ -1,8 +1,8 @@
 import math
 
 import gradio as gr
-from modules import scripts, shared, ui_components, ui_settings, infotext_utils, errors
-from modules.ui_components import FormColumn
+from sd_forge.modules import scripts, shared, ui_components, ui_settings, infotext_utils, errors
+from sd_forge.modules.ui_components import FormColumn
 
 
 class ExtraOptionsSection(scripts.Script):

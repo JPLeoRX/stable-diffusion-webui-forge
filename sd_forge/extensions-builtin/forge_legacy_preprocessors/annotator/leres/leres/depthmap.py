@@ -1,8 +1,8 @@
 # Author: thygate
 # https://github.com/thygate/stable-diffusion-webui-depthmap-script
 
-from modules import devices
-from modules.shared import opts
+from sd_forge.modules import devices
+from sd_forge.modules.shared import opts
 from torchvision.transforms import transforms
 from operator import getitem
 

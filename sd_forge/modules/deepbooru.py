@@ -4,9 +4,9 @@ import re
 import torch
 import numpy as np
 
-from modules import modelloader, paths, deepbooru_model, images, shared
-from backend import memory_management
-from backend.patcher.base import ModelPatcher
+from sd_forge.modules import modelloader, paths, deepbooru_model, images, shared
+from sd_forge.backend import memory_management
+from sd_forge.backend.patcher.base import ModelPatcher
 
 
 re_special = re.compile(r'([\\()])')

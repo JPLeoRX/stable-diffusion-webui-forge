@@ -1,8 +1,8 @@
 import os
 import re
 
-from modules import shared
-from modules.paths_internal import script_path, cwd
+from sd_forge.modules import shared
+from sd_forge.modules.paths_internal import script_path, cwd
 
 
 def natural_sort_key(s, regex=re.compile('([0-9]+)')):

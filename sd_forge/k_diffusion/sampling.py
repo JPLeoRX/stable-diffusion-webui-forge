@@ -6,9 +6,9 @@ from torch import nn
 from torchdiffeq import odeint
 import torchsde
 from tqdm.auto import trange, tqdm
-from k_diffusion import deis
+from sd_forge.k_diffusion import deis
 
-from . import utils
+from sd_forge.k_diffusion import utils
 
 
 def append_zero(x):

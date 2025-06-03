@@ -1,5 +1,5 @@
 import os
-from modules_forge.shared import preprocessor_dir
+from sd_forge.modules_forge.shared import preprocessor_dir
 
 
 models_path = preprocessor_dir

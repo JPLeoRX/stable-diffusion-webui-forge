@@ -1,8 +1,8 @@
 import gradio as gr
 
-from modules import ui_extra_networks_user_metadata, sd_vae, shared
-from modules.ui_components import ToolButton
-from modules_forge import main_entry
+from sd_forge.modules import ui_extra_networks_user_metadata, sd_vae, shared
+from sd_forge.modules.ui_components import ToolButton
+from sd_forge.modules_forge import main_entry
 
 refresh_symbol = '\U0001f504'  # 🔄
 

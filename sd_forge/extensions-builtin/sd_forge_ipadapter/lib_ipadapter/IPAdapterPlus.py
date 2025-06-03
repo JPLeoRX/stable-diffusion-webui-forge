@@ -7,10 +7,10 @@ import contextlib
 import os
 import math
 
-from backend import memory_management, attention, utils
-from backend.misc.image_resize import adaptive_resize
-from backend.patcher.clipvision import clip_preprocess
-from modules_forge.shared import controlnet_dir, models_path
+from sd_forge.backend import memory_management, attention, utils
+from sd_forge.backend.misc.image_resize import adaptive_resize
+from sd_forge.backend.patcher.clipvision import clip_preprocess
+from sd_forge.modules_forge.shared import controlnet_dir, models_path
 
 from torch import nn
 from PIL import Image

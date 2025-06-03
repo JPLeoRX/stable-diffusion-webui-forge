@@ -10,7 +10,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from modules import devices
+from sd_forge.modules import devices
 
 nets = {
     'baseline': {

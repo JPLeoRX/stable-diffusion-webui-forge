@@ -24,7 +24,7 @@ except ImportError:
 from torch import Tensor
 from typing import List
 
-from backend import memory_management
+from sd_forge.backend import memory_management
 
 
 def dynamic_slice(

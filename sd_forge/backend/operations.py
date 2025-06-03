@@ -4,8 +4,8 @@ import time
 import torch
 import contextlib
 
-from backend import stream, memory_management, utils
-from backend.patcher.lora import merge_lora_to_weight
+from sd_forge.backend import stream, memory_management, utils
+from sd_forge.backend.patcher.lora import merge_lora_to_weight
 
 
 stash = {}

@@ -7,7 +7,7 @@ import gradio as gr
 import gradio.component_meta
 
 
-from modules import scripts, ui_tempdir, patches
+from sd_forge.modules import scripts, ui_tempdir, patches
 
 
 class GradioDeprecationWarning(DeprecationWarning):

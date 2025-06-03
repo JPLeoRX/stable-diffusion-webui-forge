@@ -9,8 +9,8 @@ import cv2
 import numpy as np
 import torch
 
-from modules import devices, errors, face_restoration, shared
-from modules_forge.utils import prepare_free_memory
+from sd_forge.modules import devices, errors, face_restoration, shared
+from sd_forge.modules_forge.utils import prepare_free_memory
 
 if TYPE_CHECKING:
     from facexlib.utils.face_restoration_helper import FaceRestoreHelper

@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from modules import paths_internal, timer, shared_cmd_options, errors, launch_utils
+from sd_forge.modules import paths_internal, timer, shared_cmd_options, errors, launch_utils
 
 checksum_token = "DontStealMyGamePlz__WINNERS_DONT_USE_DRUGS__DONT_COPY_THAT_FLOPPY"
 environment_whitelist = {
@@ -187,7 +187,7 @@ def get_info_from_repo_path(path: Path):
 
 def get_extensions(*, enabled, fallback_disabled_extensions=None):
     try:
-        from modules import extensions
+        from sd_forge.modules import extensions
         if extensions.extensions:
             def to_json(x: extensions.Extension):
                 return {
@@ -206,7 +206,7 @@ def get_extensions(*, enabled, fallback_disabled_extensions=None):
 
 def get_config():
     try:
-        from modules import shared
+        from sd_forge.modules import shared
         return shared.opts.data
     except Exception as _:
         try:
@@ -216,8 +216,8 @@ def get_config():
             return str(e)
 
 def set_config(req: dict[str, Any], is_api=False, run_callbacks=True, save_config=True):
-    from modules import shared, sd_models
-    from modules_forge import main_entry
+    from sd_forge.modules import shared, sd_models
+    from sd_forge.modules_forge import main_entry
     
     should_refresh_model_loading_params = False
 

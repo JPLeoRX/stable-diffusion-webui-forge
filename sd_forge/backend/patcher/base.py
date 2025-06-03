@@ -8,8 +8,8 @@
 import copy
 import inspect
 
-from backend import memory_management, utils
-from backend.patcher.lora import LoraLoader
+from sd_forge.backend import memory_management, utils
+from sd_forge.backend.patcher.lora import LoraLoader
 
 
 def set_model_options_patch_replace(model_options, patch, name, block_name, number, transformer_index=None):

@@ -2,7 +2,7 @@ import os
 
 import torch
 from torch import nn
-from modules import devices, paths, shared
+from sd_forge.modules import devices, paths, shared
 
 sd_vae_approx_models = {}
 

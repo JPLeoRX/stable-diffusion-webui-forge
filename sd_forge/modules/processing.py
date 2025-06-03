@@ -15,27 +15,27 @@ import cv2
 from skimage import exposure
 from typing import Any
 
-import modules.sd_hijack
-from modules import devices, prompt_parser, masking, sd_samplers, lowvram, infotext_utils, extra_networks, sd_vae_approx, scripts, sd_samplers_common, sd_unet, errors, rng, profiling
-from modules.rng import slerp, get_noise_source_type  # noqa: F401
-from modules.sd_samplers_common import images_tensor_to_samples, decode_first_stage, approximation_indexes
-from modules.shared import opts, cmd_opts, state
-from modules.sysinfo import set_config
-import modules.shared as shared
-import modules.paths as paths
-import modules.face_restoration
-import modules.images as images
-import modules.styles
-import modules.sd_models as sd_models
-import modules.sd_vae as sd_vae
+import sd_forge.modules.sd_hijack
+from sd_forge.modules import devices, prompt_parser, masking, sd_samplers, lowvram, infotext_utils, extra_networks, sd_vae_approx, scripts, sd_samplers_common, sd_unet, errors, rng, profiling
+from sd_forge.modules.rng import slerp, get_noise_source_type  # noqa: F401
+from sd_forge.modules.sd_samplers_common import images_tensor_to_samples, decode_first_stage, approximation_indexes
+from sd_forge.modules.shared import opts, cmd_opts, state
+from sd_forge.modules.sysinfo import set_config
+import sd_forge.modules.shared as shared
+import sd_forge.modules.paths as paths
+import sd_forge.modules.face_restoration
+import sd_forge.modules.images as images
+import sd_forge.modules.styles
+import sd_forge.modules.sd_models as sd_models
+import sd_forge.modules.sd_vae as sd_vae
 
 from einops import repeat, rearrange
 from blendmodes.blend import blendLayers, BlendType
-from modules.sd_models import apply_token_merging, forge_model_reload
-from modules_forge.utils import apply_circular_forge
-from modules_forge import main_entry
-from backend import memory_management
-from backend.modules.k_prediction import rescale_zero_terminal_snr_sigmas
+from sd_forge.modules.sd_models import apply_token_merging, forge_model_reload
+from sd_forge.modules_forge.utils import apply_circular_forge
+from sd_forge.modules_forge import main_entry
+from sd_forge.backend import memory_management
+from sd_forge.backend.modules.k_prediction import rescale_zero_terminal_snr_sigmas
 
 
 # some of those options should not be changed at all because they would break the model, so I removed them from options.
@@ -1045,7 +1045,7 @@ def process_images_inner(p: StableDiffusionProcessing) -> Processed:
 
                     devices.torch_gc()
 
-                    x_sample = modules.face_restoration.restore_faces(x_sample)
+                    x_sample = sd_forge.modules.face_restoration.restore_faces(x_sample)
                     devices.torch_gc()
 
                 image = Image.fromarray(x_sample)

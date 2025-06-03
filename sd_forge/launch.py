@@ -1,7 +1,7 @@
 # import faulthandler
 # faulthandler.enable()
 
-from modules import launch_utils
+from sd_forge.modules import launch_utils
 
 args = launch_utils.args
 python = launch_utils.python

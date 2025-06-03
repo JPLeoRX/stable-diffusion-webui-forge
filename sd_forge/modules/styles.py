@@ -1,10 +1,10 @@
 from pathlib import Path
-from modules import errors
+from sd_forge.modules import errors
 import csv
 import os
 import typing
 import shutil
-import modules.processing_scripts.comments as comments
+import sd_forge.modules.processing_scripts.comments as comments
 
 
 class PromptStyle(typing.NamedTuple):

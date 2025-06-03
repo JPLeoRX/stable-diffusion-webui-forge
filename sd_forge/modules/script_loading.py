@@ -1,7 +1,7 @@
 import os
 import importlib.util
 
-from modules import errors
+from sd_forge.modules import errors
 
 
 loaded_scripts = {}

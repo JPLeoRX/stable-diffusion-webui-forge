@@ -2,14 +2,14 @@ import contextlib
 
 import torch
 
-import k_diffusion
-from modules.models.sd3.sd3_impls import BaseModel, SDVAE, SD3LatentFormat
-from modules.models.sd3.sd3_cond import SD3Cond
+import sd_forge.k_diffusion.external
+from sd_forge.modules.models.sd3.sd3_impls import BaseModel, SDVAE, SD3LatentFormat
+from sd_forge.modules.models.sd3.sd3_cond import SD3Cond
 
-from modules import shared, devices
+from sd_forge.modules import shared, devices
 
 
-class SD3Denoiser(k_diffusion.external.DiscreteSchedule):
+class SD3Denoiser(sd_forge.k_diffusion.external.DiscreteSchedule):
     def __init__(self, inner_model, sigmas):
         super().__init__(sigmas, quantize=shared.opts.enable_quantization)
         self.inner_model = inner_model

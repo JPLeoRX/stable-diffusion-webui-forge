@@ -2,8 +2,8 @@ import os
 
 from PIL import Image
 
-from modules import shared, images, devices, scripts, scripts_postprocessing, ui_common, infotext_utils
-from modules.shared import opts
+from sd_forge.modules import shared, images, devices, scripts, scripts_postprocessing, ui_common, infotext_utils
+from sd_forge.modules.shared import opts
 
 
 def run_postprocessing(extras_mode, image, image_folder, input_dir, output_dir, show_extras_results, *args, save_output: bool = True):

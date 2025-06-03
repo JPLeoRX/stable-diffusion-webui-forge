@@ -3,8 +3,8 @@ import torch
 import os
 import json
 import safetensors.torch
-import backend.misc.checkpoint_pickle
-from backend.operations_gguf import ParameterGGUF
+import sd_forge.backend.misc.checkpoint_pickle
+from sd_forge.backend.operations_gguf import ParameterGGUF
 
 
 def read_arbitrary_config(directory):

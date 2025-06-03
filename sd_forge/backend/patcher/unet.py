@@ -1,8 +1,8 @@
 import copy
 import torch
 
-from backend.modules.k_model import KModel
-from backend.patcher.base import ModelPatcher
+from sd_forge.backend.modules.k_model import KModel
+from sd_forge.backend.patcher.base import ModelPatcher
 
 
 class UnetPatcher(ModelPatcher):

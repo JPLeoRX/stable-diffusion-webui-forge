@@ -1,4 +1,4 @@
-from modules import shared
+from sd_forge.modules import shared
 import re
 
 def strip_comments(text):

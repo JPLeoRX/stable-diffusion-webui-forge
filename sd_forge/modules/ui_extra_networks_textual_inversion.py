@@ -1,12 +1,12 @@
 import os
-import modules.textual_inversion.textual_inversion
+import sd_forge.modules.textual_inversion.textual_inversion
 
-from modules.shared import cmd_opts
-from modules import ui_extra_networks, shared
-from modules.ui_extra_networks import quote_js
+from sd_forge.modules.shared import cmd_opts
+from sd_forge.modules import ui_extra_networks, shared
+from sd_forge.modules.ui_extra_networks import quote_js
 
 
-embedding_db = modules.textual_inversion.textual_inversion.EmbeddingDatabase()
+embedding_db = sd_forge.modules.textual_inversion.textual_inversion.EmbeddingDatabase()
 embedding_db.add_embedding_dir(cmd_opts.embeddings_dir)
 embedding_db.load_textual_inversion_embeddings(force_reload=True, sync_with_sd_model=False)
 

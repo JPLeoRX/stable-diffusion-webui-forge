@@ -4,7 +4,7 @@ import torch
 
 from einops import rearrange
 from .api import MiDaSInference
-from modules import devices
+from sd_forge.modules import devices
 
 model = None
 

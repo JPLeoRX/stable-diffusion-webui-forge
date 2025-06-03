@@ -4,7 +4,7 @@ import logging
 
 import torch
 
-from modules import (
+from sd_forge.modules import (
     devices,
     errors,
     face_restoration,

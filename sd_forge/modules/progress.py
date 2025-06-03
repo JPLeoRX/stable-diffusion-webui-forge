@@ -6,9 +6,9 @@ import time
 import gradio as gr
 from pydantic import BaseModel, Field
 
-from modules.shared import opts
+from sd_forge.modules.shared import opts
 
-import modules.shared as shared
+import sd_forge.modules.shared as shared
 from collections import OrderedDict
 import string
 import random

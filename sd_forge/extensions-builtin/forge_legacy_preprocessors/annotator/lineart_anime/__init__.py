@@ -6,7 +6,7 @@ import functools
 import os
 import cv2
 from einops import rearrange
-from modules import devices
+from sd_forge.modules import devices
 from annotator.annotator_path import models_path
 
 
@@ -121,7 +121,7 @@ class LineartAnimeDetector:
         remote_model_path = "https://huggingface.co/lllyasviel/Annotators/resolve/main/netG.pth"
         modelpath = os.path.join(self.model_dir, "netG.pth")
         if not os.path.exists(modelpath):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(remote_model_path, model_dir=self.model_dir)
         norm_layer = functools.partial(nn.InstanceNorm2d, affine=False, track_running_stats=False)
         net = UnetGenerator(3, 1, 8, 64, norm_layer=norm_layer, use_dropout=False)

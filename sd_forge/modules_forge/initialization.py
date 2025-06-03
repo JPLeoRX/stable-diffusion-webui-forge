@@ -45,17 +45,17 @@ def initialize_forge():
             print(f'In extreme cases, if you want to force previous lowvram/medvram behaviors, '
                   f'please use --always-offload-from-vram')
 
-    from backend.args import args
+    from sd_forge.backend.args import args
 
     if args.gpu_device_id is not None:
         os.environ['CUDA_VISIBLE_DEVICES'] = str(args.gpu_device_id)
         print("Set device to:", args.gpu_device_id)
 
     if args.cuda_malloc:
-        from modules_forge.cuda_malloc import try_cuda_malloc
+        from sd_forge.modules_forge.cuda_malloc import try_cuda_malloc
         try_cuda_malloc()
 
-    from backend import memory_management
+    from sd_forge.backend import memory_management
     import torch
 
     monitor_module_moving()
@@ -65,13 +65,13 @@ def initialize_forge():
     memory_management.soft_empty_cache()
 
     if memory_management.can_install_bnb():
-        from modules_forge.bnb_installer import try_install_bnb
+        from sd_forge.modules_forge.bnb_installer import try_install_bnb
         try_install_bnb()
 
-    from backend import stream
+    from sd_forge.backend import stream
     print('CUDA Using Stream:', stream.should_use_stream())
 
-    from modules_forge.shared import diffusers_dir
+    from sd_forge.modules_forge.shared import diffusers_dir
 
     # if 'TRANSFORMERS_CACHE' not in os.environ:
     #     os.environ['TRANSFORMERS_CACHE'] = diffusers_dir
@@ -91,7 +91,7 @@ def initialize_forge():
     if 'HF_HUB_CACHE' not in os.environ:
         os.environ['HF_HUB_CACHE'] = diffusers_dir
 
-    import modules_forge.patch_basic
-    modules_forge.patch_basic.patch_all_basics()
+    import sd_forge.modules_forge.patch_basic
+    sd_forge.modules_forge.patch_basic.patch_all_basics()
 
     return

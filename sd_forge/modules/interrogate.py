@@ -10,9 +10,9 @@ import torch.hub
 from torchvision import transforms
 from torchvision.transforms.functional import InterpolationMode
 
-from modules import devices, paths, shared, modelloader, errors
-from backend import memory_management
-from backend.patcher.base import ModelPatcher
+from sd_forge.modules import devices, paths, shared, modelloader, errors
+from sd_forge.backend import memory_management
+from sd_forge.backend.patcher.base import ModelPatcher
 
 
 blip_image_eval_size = 384

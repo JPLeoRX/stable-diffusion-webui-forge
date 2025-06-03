@@ -1,9 +1,9 @@
 import gradio as gr
 
-from modules import shared, ui_prompt_styles
-import modules.images
+from sd_forge.modules import shared, ui_prompt_styles
+import sd_forge.modules.images
 
-from modules.ui_components import ToolButton
+from sd_forge.modules.ui_components import ToolButton
 
 
 class Toprow:
@@ -87,7 +87,7 @@ class Toprow:
                 self.negative_prompt = gr.Textbox(label="Negative prompt", elem_id=f"{self.id_part}_neg_prompt", show_label=False, lines=3, placeholder="Negative prompt\n(Press Ctrl+Enter to generate, Alt+Enter to skip, Esc to interrupt)", elem_classes=["prompt"], value='')
 
         self.prompt_img.change(
-            fn=modules.images.image_data,
+            fn=sd_forge.modules.images.image_data,
             inputs=[self.prompt_img],
             outputs=[self.prompt, self.prompt_img],
             show_progress=False,

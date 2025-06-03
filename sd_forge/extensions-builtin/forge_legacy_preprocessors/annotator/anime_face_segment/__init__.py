@@ -9,7 +9,7 @@ import cv2
 import sys
 
 import numpy as np
-from modules import devices
+from sd_forge.modules import devices
 from einops import rearrange
 from annotator.annotator_path import models_path
 
@@ -138,7 +138,7 @@ class AnimeFaceSegment:
         remote_model_path = "https://huggingface.co/bdsqlsz/qinglong_controlnet-lllite/resolve/main/Annotators/UNet.pth"
         modelpath = os.path.join(self.model_dir, "UNet.pth")
         if not os.path.exists(modelpath):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(remote_model_path, model_dir=self.model_dir)
         net = UNet()
         ckpt = torch.load(modelpath, map_location=self.device)

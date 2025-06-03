@@ -1,7 +1,7 @@
 import torch
 import math
 
-from backend.attention import attention_pytorch as attention_function
+from sd_forge.backend.attention import attention_pytorch as attention_function
 from transformers.activations import NewGELUActivation
 
 

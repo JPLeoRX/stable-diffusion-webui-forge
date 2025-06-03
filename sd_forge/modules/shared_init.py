@@ -2,8 +2,8 @@ import os
 
 import torch
 
-from modules import shared
-from modules.shared import cmd_opts
+from sd_forge.modules import shared
+from sd_forge.modules.shared import cmd_opts
 
 
 def initialize():
@@ -14,7 +14,7 @@ def initialize():
 
     os.makedirs(cmd_opts.hypernetwork_dir, exist_ok=True)
 
-    from modules import options, shared_options
+    from sd_forge.modules import options, shared_options
     shared.options_templates = shared_options.options_templates
     shared.opts = options.Options(shared_options.options_templates, shared_options.restricted_opts)
     shared.restricted_opts = shared_options.restricted_opts
@@ -23,23 +23,23 @@ def initialize():
     except FileNotFoundError:
         pass
 
-    from modules import devices
+    from sd_forge.modules import devices
     shared.device = devices.device
     shared.weight_load_location = None if cmd_opts.lowram else "cpu"
 
-    from modules import shared_state
+    from sd_forge.modules import shared_state
     shared.state = shared_state.State()
 
-    from modules import styles
+    from sd_forge.modules import styles
     shared.prompt_styles = styles.StyleDatabase(shared.styles_filename)
 
-    from modules import interrogate
+    from sd_forge.modules import interrogate
     shared.interrogator = interrogate.InterrogateModels("interrogate")
 
-    from modules import shared_total_tqdm
+    from sd_forge.modules import shared_total_tqdm
     shared.total_tqdm = shared_total_tqdm.TotalTQDM()
 
-    from modules import memmon, devices
+    from sd_forge.modules import memmon, devices
     shared.mem_mon = memmon.MemUsageMonitor("MemMon", devices.device, shared.opts)
     shared.mem_mon.start()
 

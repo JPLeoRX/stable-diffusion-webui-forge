@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from backend.attention import attention_function_single_head_spatial
+from sd_forge.backend.attention import attention_function_single_head_spatial
 from diffusers.configuration_utils import ConfigMixin, register_to_config
 from torch import nn
 

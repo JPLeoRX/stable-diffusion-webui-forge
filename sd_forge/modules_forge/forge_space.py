@@ -9,7 +9,7 @@ import importlib.util
 from gradio.context import Context
 from threading import Thread
 from huggingface_hub import snapshot_download
-from backend import memory_management
+from sd_forge.backend import memory_management
 
 
 spaces = []

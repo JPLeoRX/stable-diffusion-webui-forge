@@ -1,4 +1,4 @@
-from modules import shared
+from sd_forge.modules import shared
 from packaging import version
 import re
 

@@ -1,8 +1,8 @@
 import torch
 import gradio as gr
 
-from modules import scripts
-from backend import attention
+from sd_forge.modules import scripts
+from sd_forge.backend import attention
 
 
 def sdp(q, k, v, transformer_options):

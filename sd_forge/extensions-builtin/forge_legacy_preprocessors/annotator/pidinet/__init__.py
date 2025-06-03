@@ -4,7 +4,7 @@ import numpy as np
 from einops import rearrange
 from annotator.pidinet.model import pidinet
 from annotator.util import safe_step
-from modules import devices
+from sd_forge.modules import devices
 from annotator.annotator_path import models_path
 from backend.utils import load_torch_file
 
@@ -21,7 +21,7 @@ def apply_pidinet(input_image, is_safe=False, apply_fliter=False):
         if os.path.exists(old_modelpath):
             modelpath = old_modelpath
         elif not os.path.exists(modelpath):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(remote_model_path, model_dir=modeldir)
         netNetwork = pidinet()
         ckp = load_torch_file(modelpath)

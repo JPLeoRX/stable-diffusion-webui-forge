@@ -1,7 +1,7 @@
-from modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
-from modules_forge.shared import preprocessor_dir, add_supported_preprocessor
-from modules_forge.utils import resize_image_with_pad
-from modules.modelloader import load_file_from_url
+from sd_forge.modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
+from sd_forge.modules_forge.shared import preprocessor_dir, add_supported_preprocessor
+from sd_forge.modules_forge.utils import resize_image_with_pad
+from sd_forge.modules.modelloader import load_file_from_url
 
 import types
 import torch

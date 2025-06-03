@@ -1,8 +1,8 @@
 import gradio as gr
 
-from modules import scripts, shared
-from modules.ui_components import InputAccordion
-from backend.misc.image_resize import adaptive_resize
+from sd_forge.modules import scripts, shared
+from sd_forge.modules.ui_components import InputAccordion
+from sd_forge.backend.misc.image_resize import adaptive_resize
 
 
 class PatchModelAddDownscale:

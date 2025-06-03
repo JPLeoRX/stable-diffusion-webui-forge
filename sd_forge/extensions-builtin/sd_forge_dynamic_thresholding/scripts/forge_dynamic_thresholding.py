@@ -1,6 +1,6 @@
 import gradio as gr
 
-from modules import scripts
+from sd_forge.modules import scripts
 from lib_dynamic_thresholding.dynthres import DynamicThresholdingNode
 
 opDynamicThresholdingNode = DynamicThresholdingNode().patch

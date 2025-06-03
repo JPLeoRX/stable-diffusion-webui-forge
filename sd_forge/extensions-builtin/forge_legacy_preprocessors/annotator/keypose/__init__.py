@@ -3,7 +3,7 @@ import cv2
 import torch
 
 import os
-from modules import devices
+from sd_forge.modules import devices
 from annotator.annotator_path import models_path
 
 import mmcv
@@ -147,7 +147,7 @@ def find_download_model(checkpoint, remote_path):
     if os.path.exists(old_modelpath):
         modelpath = old_modelpath
     elif not os.path.exists(modelpath):
-        from modules.modelloader import load_file_from_url
+        from sd_forge.modules.modelloader import load_file_from_url
         load_file_from_url(remote_path, model_dir=modeldir)
         
     return modelpath

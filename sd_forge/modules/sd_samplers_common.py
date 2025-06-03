@@ -3,12 +3,12 @@ from collections import namedtuple
 import numpy as np
 import torch
 from PIL import Image
-from modules import devices, images, sd_vae_approx, sd_samplers, sd_vae_taesd, shared, sd_models
-from modules.shared import opts, state
-from backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
-from modules import extra_networks
-import k_diffusion.sampling
-from modules_forge import main_entry
+from sd_forge.modules import devices, images, sd_vae_approx, sd_samplers, sd_vae_taesd, shared, sd_models
+from sd_forge.modules.shared import opts, state
+from sd_forge.backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
+from sd_forge.modules import extra_networks
+import sd_forge.k_diffusion.sampling
+from sd_forge.modules_forge import main_entry
 
 SamplerDataTuple = namedtuple('SamplerData', ['name', 'constructor', 'aliases', 'options'])
 
@@ -302,7 +302,7 @@ class Sampler:
         self.eta = p.eta if p.eta is not None else getattr(opts, self.eta_option_field, 0.0)
         self.s_min_uncond = getattr(p, 's_min_uncond', 0.0)
 
-        k_diffusion.sampling.torch = TorchHijack(p)
+        sd_forge.k_diffusion.sampling.torch = TorchHijack(p)
 
         extra_params_kwargs = {}
         for param_name in self.extra_params:
@@ -345,7 +345,7 @@ class Sampler:
         if shared.opts.no_dpmpp_sde_batch_determinism:
             return None
 
-        from k_diffusion.sampling import BrownianTreeNoiseSampler
+        from sd_forge.k_diffusion.sampling import BrownianTreeNoiseSampler
         sigma_min, sigma_max = sigmas[sigmas > 0].min(), sigmas.max()
         current_iter_seeds = p.all_seeds[p.iteration * p.batch_size:(p.iteration + 1) * p.batch_size]
         return BrownianTreeNoiseSampler(x, sigma_min, sigma_max, seed=current_iter_seeds)

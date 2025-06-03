@@ -1,12 +1,12 @@
 import torch
-from modules import prompt_parser, sd_samplers_common
+from sd_forge.modules import prompt_parser, sd_samplers_common
 
-from modules.shared import opts, state
-import modules.shared as shared
-from modules.script_callbacks import CFGDenoiserParams, cfg_denoiser_callback
-from modules.script_callbacks import CFGDenoisedParams, cfg_denoised_callback
-from modules.script_callbacks import AfterCFGCallbackParams, cfg_after_cfg_callback
-from backend.sampling.sampling_function import sampling_function
+from sd_forge.modules.shared import opts, state
+import sd_forge.modules.shared as shared
+from sd_forge.modules.script_callbacks import CFGDenoiserParams, cfg_denoiser_callback
+from sd_forge.modules.script_callbacks import CFGDenoisedParams, cfg_denoised_callback
+from sd_forge.modules.script_callbacks import AfterCFGCallbackParams, cfg_after_cfg_callback
+from sd_forge.backend.sampling.sampling_function import sampling_function
 
 
 def catenate_conds(conds):

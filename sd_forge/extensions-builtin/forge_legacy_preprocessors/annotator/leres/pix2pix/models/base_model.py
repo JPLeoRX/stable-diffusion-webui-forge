@@ -1,6 +1,6 @@
 import os
 import torch, gc
-from modules import devices
+from sd_forge.modules import devices
 from collections import OrderedDict
 from abc import ABC, abstractmethod
 from . import networks

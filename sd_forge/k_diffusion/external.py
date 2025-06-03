@@ -3,7 +3,7 @@ import math
 import torch
 from torch import nn
 
-from . import sampling, utils
+from sd_forge.k_diffusion import sampling, utils
 
 
 class VDenoiser(nn.Module):

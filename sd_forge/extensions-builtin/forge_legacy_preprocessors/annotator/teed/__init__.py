@@ -11,7 +11,7 @@ import torch
 
 from annotator.teed.ted import TED  # TEED architecture
 from einops import rearrange
-from modules import devices
+from sd_forge.modules import devices
 from annotator.util import load_model,safe_step
 from annotator.annotator_path import models_path
 

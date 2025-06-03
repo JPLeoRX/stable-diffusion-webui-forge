@@ -1,10 +1,10 @@
 import gradio as gr
 
-from modules import scripts
-from modules.script_callbacks import on_cfg_denoiser, remove_current_script_callbacks
-from backend.patcher.base import set_model_options_patch_replace
-from backend.sampling.sampling_function import calc_cond_uncond_batch
-from modules.ui_components import InputAccordion
+from sd_forge.modules import scripts
+from sd_forge.modules.script_callbacks import on_cfg_denoiser, remove_current_script_callbacks
+from sd_forge.backend.patcher.base import set_model_options_patch_replace
+from sd_forge.backend.sampling.sampling_function import calc_cond_uncond_batch
+from sd_forge.modules.ui_components import InputAccordion
 
 
 class PerturbedAttentionGuidanceForForge(scripts.Script):

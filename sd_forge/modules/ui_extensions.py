@@ -11,9 +11,9 @@ import html
 import shutil
 import errno
 
-from modules import extensions, shared, paths, config_states, errors, restart
-from modules.paths_internal import config_states_dir
-from modules.call_queue import wrap_gradio_gpu_call
+from sd_forge.modules import extensions, shared, paths, config_states, errors, restart
+from sd_forge.modules.paths_internal import config_states_dir
+from sd_forge.modules.call_queue import wrap_gradio_gpu_call
 
 available_extensions = {"extensions": []}
 STYLE_PRIMARY = ' style="color: var(--primary-400)"'

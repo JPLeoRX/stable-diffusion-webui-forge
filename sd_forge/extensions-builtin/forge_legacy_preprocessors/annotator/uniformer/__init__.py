@@ -1,6 +1,6 @@
 import os
 from annotator.annotator_path import models_path
-from modules import devices
+from sd_forge.modules import devices
 from annotator.uniformer.inference import init_segmentor, inference_segmentor, show_result_pyplot
 
 try:
@@ -27,7 +27,7 @@ def apply_uniformer(img):
         if os.path.exists(old_modelpath):
             modelpath = old_modelpath  
         elif not os.path.exists(modelpath):
-            from modules.modelloader import load_file_from_url
+            from sd_forge.modules.modelloader import load_file_from_url
             load_file_from_url(checkpoint_file, model_dir=modeldir)
             
         model = init_segmentor(config_file, modelpath, device=devices.get_device_for("controlnet"))

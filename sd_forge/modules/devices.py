@@ -1,6 +1,6 @@
 import contextlib
 import torch
-from backend import memory_management
+from sd_forge.backend import memory_management
 
 
 def has_xpu() -> bool:

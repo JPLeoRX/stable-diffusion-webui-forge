@@ -1,9 +1,9 @@
 import torch
 
-from modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
-from modules_forge.shared import add_supported_preprocessor
-from backend.sampling.sampling_function import sampling_function_inner
-from backend import attention
+from sd_forge.modules_forge.supported_preprocessor import Preprocessor, PreprocessorParameter
+from sd_forge.modules_forge.shared import add_supported_preprocessor
+from sd_forge.backend.sampling.sampling_function import sampling_function_inner
+from sd_forge.backend import attention
 
 
 def sdp(q, k, v, transformer_options):

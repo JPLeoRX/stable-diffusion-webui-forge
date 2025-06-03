@@ -1,7 +1,7 @@
 import torch
 import safetensors.torch as sf
 
-from backend import utils
+from sd_forge.backend import utils
 
 
 class ForgeObjects:

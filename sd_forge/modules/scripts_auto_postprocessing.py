@@ -1,4 +1,4 @@
-from modules import scripts, scripts_postprocessing, shared
+from sd_forge.modules import scripts, scripts_postprocessing, shared
 
 
 class ScriptPostprocessingForMainUI(scripts.Script):

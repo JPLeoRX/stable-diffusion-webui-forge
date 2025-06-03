@@ -15,13 +15,13 @@ from lib_controlnet.logging import logger
 from lib_controlnet.controlnet_ui.openpose_editor import OpenposeEditor
 from lib_controlnet.controlnet_ui.photopea import Photopea
 from lib_controlnet.enums import InputMode, HiResFixOption
-from modules import shared, script_callbacks
-from modules.ui_components import FormRow
-from modules_forge.utils import HWC3
+from sd_forge.modules import shared, script_callbacks
+from sd_forge.modules.ui_components import FormRow
+from sd_forge.modules_forge.utils import HWC3
 from lib_controlnet.external_code import UiControlNetUnit
-from modules.ui_components import ToolButton
+from sd_forge.modules.ui_components import ToolButton
 from gradio_rangeslider import RangeSlider
-from modules_forge.forge_canvas.canvas import ForgeCanvas
+from sd_forge.modules_forge.forge_canvas.canvas import ForgeCanvas
 
 
 @dataclass

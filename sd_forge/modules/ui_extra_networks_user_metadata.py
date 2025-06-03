@@ -5,7 +5,7 @@ import os.path
 
 import gradio as gr
 
-from modules import infotext_utils, images, sysinfo, errors, ui_extra_networks
+from sd_forge.modules import infotext_utils, images, sysinfo, errors, ui_extra_networks
 
 
 class UserMetadataEditor:

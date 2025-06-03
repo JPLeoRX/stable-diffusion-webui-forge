@@ -1,14 +1,14 @@
 import torch
 import inspect
-import k_diffusion.sampling
-import k_diffusion.external
-from modules import sd_samplers_common, sd_samplers_extra, sd_samplers_cfg_denoiser, sd_schedulers, devices
-from modules.sd_samplers_cfg_denoiser import CFGDenoiser  # noqa: F401
-from modules.script_callbacks import ExtraNoiseParams, extra_noise_callback
+import sd_forge.k_diffusion.sampling
+import sd_forge.k_diffusion.external
+from sd_forge.modules import sd_samplers_common, sd_samplers_extra, sd_samplers_cfg_denoiser, sd_schedulers, devices
+from sd_forge.modules.sd_samplers_cfg_denoiser import CFGDenoiser  # noqa: F401
+from sd_forge.modules.script_callbacks import ExtraNoiseParams, extra_noise_callback
 
-from modules.shared import opts
-import modules.shared as shared
-from backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
+from sd_forge.modules.shared import opts
+import sd_forge.modules.shared as shared
+from sd_forge.backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
 
 
 samplers_k_diffusion = [
@@ -37,7 +37,7 @@ samplers_k_diffusion = [
 samplers_data_k_diffusion = [
     sd_samplers_common.SamplerData(label, lambda model, funcname=funcname: KDiffusionSampler(funcname, model), aliases, options)
     for label, funcname, aliases, options in samplers_k_diffusion
-    if callable(funcname) or hasattr(k_diffusion.sampling, funcname)
+    if callable(funcname) or hasattr(sd_forge.k_diffusion.sampling, funcname)
 ]
 
 sampler_extra_params = {
@@ -60,7 +60,7 @@ class CFGDenoiserKDiffusion(sd_samplers_cfg_denoiser.CFGDenoiser):
     @property
     def inner_model(self):
         if self.model_wrap is None:
-            self.model_wrap = k_diffusion.external.ForgeScheduleLinker(shared.sd_model.forge_objects.unet.model.predictor)
+            self.model_wrap = sd_forge.k_diffusion.external.ForgeScheduleLinker(shared.sd_model.forge_objects.unet.model.predictor)
             self.model_wrap.inner_model = shared.sd_model
 
         return self.model_wrap
@@ -73,7 +73,7 @@ class KDiffusionSampler(sd_samplers_common.Sampler):
         self.extra_params = sampler_extra_params.get(funcname, [])
 
         self.options = options or {}
-        self.func = funcname if callable(funcname) else getattr(k_diffusion.sampling, self.funcname)
+        self.func = funcname if callable(funcname) else getattr(sd_forge.k_diffusion.sampling, self.funcname)
 
         self.model_wrap_cfg = CFGDenoiserKDiffusion(self)
         self.model_wrap = self.model_wrap_cfg.inner_model

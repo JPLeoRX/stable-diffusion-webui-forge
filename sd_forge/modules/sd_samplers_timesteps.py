@@ -1,13 +1,13 @@
 import torch
 import inspect
 import sys
-from modules import devices, sd_samplers_common, sd_samplers_timesteps_impl
-from modules.sd_samplers_cfg_denoiser import CFGDenoiser
-from modules.script_callbacks import ExtraNoiseParams, extra_noise_callback
+from sd_forge.modules import devices, sd_samplers_common, sd_samplers_timesteps_impl
+from sd_forge.modules.sd_samplers_cfg_denoiser import CFGDenoiser
+from sd_forge.modules.script_callbacks import ExtraNoiseParams, extra_noise_callback
 
-from modules.shared import opts
-import modules.shared as shared
-from backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
+from sd_forge.modules.shared import opts
+import sd_forge.modules.shared as shared
+from sd_forge.backend.sampling.sampling_function import sampling_prepare, sampling_cleanup
 
 
 samplers_timesteps = [
@@ -153,5 +153,5 @@ class CompVisSampler(sd_samplers_common.Sampler):
         return samples
 
 
-sys.modules['modules.sd_samplers_compvis'] = sys.modules[__name__]
+sys.modules['sd_forge.modules.sd_samplers_compvis'] = sys.modules[__name__]
 VanillaStableDiffusionSampler = CompVisSampler  # temp. compatibility with older extensions

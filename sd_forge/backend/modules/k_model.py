@@ -1,7 +1,7 @@
 import torch
 
-from backend import memory_management, attention
-from backend.modules.k_prediction import k_prediction_from_diffusers_scheduler
+from sd_forge.backend import memory_management, attention
+from sd_forge.backend.modules.k_prediction import k_prediction_from_diffusers_scheduler
 
 
 class KModel(torch.nn.Module):

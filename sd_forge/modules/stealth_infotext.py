@@ -1,7 +1,7 @@
 import gzip
 
-from modules.script_callbacks import ImageSaveParams
-from modules import shared
+from sd_forge.modules.script_callbacks import ImageSaveParams
+from sd_forge.modules import shared
 
 
 def add_stealth_pnginfo(params: ImageSaveParams):

@@ -2,11 +2,11 @@ import json
 
 import gradio as gr
 
-from modules import scripts, ui, errors
-from modules.infotext_utils import PasteField
-from modules.shared import cmd_opts
-from modules.ui_components import ToolButton
-from modules import infotext_utils
+from sd_forge.modules import scripts, ui, errors
+from sd_forge.modules.infotext_utils import PasteField
+from sd_forge.modules.shared import cmd_opts
+from sd_forge.modules.ui_components import ToolButton
+from sd_forge.modules import infotext_utils
 
 
 class ScriptSeed(scripts.ScriptBuiltinUI):

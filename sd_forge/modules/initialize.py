@@ -4,7 +4,7 @@ import sys
 import warnings
 import os
 
-from modules.timer import startup_timer
+from sd_forge.modules.timer import startup_timer
 
 
 def imports():
@@ -22,10 +22,10 @@ def imports():
     import gradio  # noqa: F401
     startup_timer.record("import gradio")
 
-    from modules import paths, timer, import_hook, errors  # noqa: F401
+    from sd_forge.modules import paths, timer, import_hook, errors  # noqa: F401
     startup_timer.record("setup paths")
 
-    from modules import shared_init
+    from sd_forge.modules import shared_init
     shared_init.initialize()
     startup_timer.record("initialize shared")
 
@@ -34,15 +34,15 @@ def imports():
 
 
 def check_versions():
-    from modules.shared_cmd_options import cmd_opts
+    from sd_forge.modules.shared_cmd_options import cmd_opts
 
     if not cmd_opts.skip_version_check:
-        from modules import errors
+        from sd_forge.modules import errors
         errors.check_versions()
 
 
 def initialize():
-    from modules import initialize_util
+    from sd_forge.modules import initialize_util
     initialize_util.fix_torch_version()
     initialize_util.fix_pytorch_lightning()
     initialize_util.fix_asyncio_event_loop_policy()
@@ -50,18 +50,18 @@ def initialize():
     initialize_util.configure_sigint_handler()
     initialize_util.configure_opts_onchange()
 
-    from modules import sd_models
+    from sd_forge.modules import sd_models
     sd_models.setup_model()
     startup_timer.record("setup SD model")
 
-    from modules.shared_cmd_options import cmd_opts
+    from sd_forge.modules.shared_cmd_options import cmd_opts
 
-    from modules import codeformer_model
+    from sd_forge.modules import codeformer_model
     warnings.filterwarnings(action="ignore", category=UserWarning, module="torchvision.transforms.functional_tensor")
     codeformer_model.setup_model(cmd_opts.codeformer_models_path)
     startup_timer.record("setup codeformer")
 
-    from modules import gfpgan_model
+    from sd_forge.modules import gfpgan_model
     gfpgan_model.setup_model(cmd_opts.gfpgan_models_path)
     startup_timer.record("setup gfpgan")
 
@@ -72,31 +72,31 @@ def initialize_rest(*, reload_script_modules=False):
     """
     Called both from initialize() and when reloading the webui.
     """
-    from modules.shared_cmd_options import cmd_opts
+    from sd_forge.modules.shared_cmd_options import cmd_opts
 
-    from modules import sd_samplers
+    from sd_forge.modules import sd_samplers
     sd_samplers.set_samplers()
     startup_timer.record("set samplers")
 
-    from modules import extensions
+    from sd_forge.modules import extensions
     extensions.list_extensions()
     startup_timer.record("list extensions")
 
-    from modules import initialize_util
+    from sd_forge.modules import initialize_util
     initialize_util.restore_config_state_file()
     startup_timer.record("restore config state file")
 
-    from modules import shared, upscaler, scripts
+    from sd_forge.modules import shared, upscaler, scripts
     if cmd_opts.ui_debug_mode:
         shared.sd_upscalers = upscaler.UpscalerLanczos().scalers
         scripts.load_scripts()
         return
 
-    from modules import sd_models
+    from sd_forge.modules import sd_models
     sd_models.list_models()
     startup_timer.record("list SD models")
 
-    from modules import localization
+    from sd_forge.modules import localization
     localization.list_localizations(cmd_opts.localizations_dir)
     startup_timer.record("list localizations")
 
@@ -108,27 +108,27 @@ def initialize_rest(*, reload_script_modules=False):
             importlib.reload(module)
         startup_timer.record("reload script modules")
 
-    from modules import modelloader
+    from sd_forge.modules import modelloader
     modelloader.load_upscalers()
     startup_timer.record("load upscalers")
 
-    from modules import sd_vae
+    from sd_forge.modules import sd_vae
     sd_vae.refresh_vae_list()
     startup_timer.record("refresh VAE")
 
-    from modules import sd_unet
+    from sd_forge.modules import sd_unet
     sd_unet.list_unets()
     startup_timer.record("scripts list_unets")
 
-    from modules import shared_items
+    from sd_forge.modules import shared_items
     shared_items.reload_hypernetworks()
     startup_timer.record("reload hypernetworks")
 
-    from modules import ui_extra_networks
+    from sd_forge.modules import ui_extra_networks
     ui_extra_networks.initialize()
     ui_extra_networks.register_default_pages()
 
-    from modules import extra_networks
+    from sd_forge.modules import extra_networks
     extra_networks.initialize()
     extra_networks.register_default_extra_networks()
     startup_timer.record("initialize extra networks")

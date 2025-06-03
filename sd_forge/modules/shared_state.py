@@ -6,8 +6,8 @@ import traceback
 import torch
 from contextlib import nullcontext
 
-from modules import errors, shared, devices
-from backend.args import args
+from sd_forge.modules import errors, shared, devices
+from sd_forge.backend.args import args
 from typing import Optional
 
 log = logging.getLogger(__name__)

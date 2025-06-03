@@ -1,11 +1,11 @@
 import hashlib
 import os.path
 
-from modules import shared
-import modules.cache
+from sd_forge.modules import shared
+import sd_forge.modules.cache
 
-dump_cache = modules.cache.dump_cache
-cache = modules.cache.cache
+dump_cache = sd_forge.modules.cache.dump_cache
+cache = sd_forge.modules.cache.cache
 
 
 def calculate_sha256_real(filename):

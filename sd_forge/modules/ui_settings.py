@@ -1,13 +1,13 @@
 import gradio as gr
 
-from modules import ui_common, shared, script_callbacks, scripts, sd_models, sysinfo, timer, shared_items
-from modules.call_queue import wrap_gradio_call_no_job
-from modules.options import options_section
-from modules.shared import opts
-from modules.ui_components import FormRow
-from modules.ui_gradio_extensions import reload_javascript
+from sd_forge.modules import ui_common, shared, script_callbacks, scripts, sd_models, sysinfo, timer, shared_items
+from sd_forge.modules.call_queue import wrap_gradio_call_no_job
+from sd_forge.modules.options import options_section
+from sd_forge.modules.shared import opts
+from sd_forge.modules.ui_components import FormRow
+from sd_forge.modules.ui_gradio_extensions import reload_javascript
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from modules_forge import main_entry
+from sd_forge.modules_forge import main_entry
 
 
 def get_value_for_setting(key):

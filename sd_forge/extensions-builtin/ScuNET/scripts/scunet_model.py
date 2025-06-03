@@ -2,11 +2,11 @@ import sys
 
 import PIL.Image
 
-import modules.upscaler
-from modules import devices, errors, modelloader, script_callbacks, shared, upscaler_utils
+import sd_forge.modules.upscaler
+from sd_forge.modules import devices, errors, modelloader, script_callbacks, shared, upscaler_utils
 
 
-class UpscalerScuNET(modules.upscaler.Upscaler):
+class UpscalerScuNET(sd_forge.modules.upscaler.Upscaler):
     def __init__(self, dirname):
         self.name = "ScuNET"
         self.model_name = "ScuNET GAN"
@@ -26,12 +26,12 @@ class UpscalerScuNET(modules.upscaler.Upscaler):
             if name == self.model_name2 or file == self.model_url2:
                 add_model2 = False
             try:
-                scaler_data = modules.upscaler.UpscalerData(name, file, self, 4)
+                scaler_data = sd_forge.modules.upscaler.UpscalerData(name, file, self, 4)
                 scalers.append(scaler_data)
             except Exception:
                 errors.report(f"Error loading ScuNET model: {file}", exc_info=True)
         if add_model2:
-            scaler_data2 = modules.upscaler.UpscalerData(self.model_name2, self.model_url2, self)
+            scaler_data2 = sd_forge.modules.upscaler.UpscalerData(self.model_name2, self.model_url2, self)
             scalers.append(scaler_data2)
         self.scalers = scalers
 

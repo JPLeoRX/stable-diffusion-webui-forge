@@ -1,5 +1,5 @@
 import torch
-from backend.args import args
+from sd_forge.backend.args import args
 
 
 def stream_context():

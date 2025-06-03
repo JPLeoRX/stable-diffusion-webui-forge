@@ -1,7 +1,7 @@
 from functools import wraps
 
 import gradio as gr
-from modules import gradio_extensions  # noqa: F401
+from sd_forge.modules import gradio_extensions  # noqa: F401
 
 
 class FormComponent:

@@ -1,6 +1,6 @@
 import torch
-from backend import operations, memory_management
-from backend.patcher.base import ModelPatcher
+from sd_forge.backend import operations, memory_management
+from sd_forge.backend.patcher.base import ModelPatcher
 
 from transformers import modeling_utils
 

@@ -7,10 +7,10 @@ from contextlib import nullcontext
 
 import gradio as gr
 
-from modules import call_queue, shared, ui_tempdir, util
-import modules.images
-from modules.ui_components import ToolButton
-import modules.infotext_utils as parameters_copypaste
+from sd_forge.modules import call_queue, shared, ui_tempdir, util
+import sd_forge.modules.images
+from sd_forge.modules.ui_components import ToolButton
+import sd_forge.modules.infotext_utils as parameters_copypaste
 
 folder_symbol = '\U0001f4c2'  # 📂
 refresh_symbol = '\U0001f504'  # 🔄
@@ -120,7 +120,7 @@ def save_files(js_data, images, do_make_zip, index):
 
             parameters = parameters_copypaste.parse_generation_parameters(data["infotexts"][image_index], [])
             parsed_infotexts.append(parameters)
-            fullfn, txt_fullfn = modules.images.save_image(image, path, "", seed=parameters['Seed'], prompt=parameters['Prompt'], extension=extension, info=p.infotexts[image_index], grid=is_grid, p=p, save_to_dirs=save_to_dirs)
+            fullfn, txt_fullfn = sd_forge.modules.images.save_image(image, path, "", seed=parameters['Seed'], prompt=parameters['Prompt'], extension=extension, info=p.infotexts[image_index], grid=is_grid, p=p, save_to_dirs=save_to_dirs)
 
             filename = os.path.relpath(fullfn, path)
             filenames.append(filename)
@@ -135,7 +135,7 @@ def save_files(js_data, images, do_make_zip, index):
     # Make Zip
     if do_make_zip:
         p.all_seeds = [parameters['Seed'] for parameters in parsed_infotexts]
-        namegen = modules.images.FilenameGenerator(p, parsed_infotexts[0]['Seed'], parsed_infotexts[0]['Prompt'], image, True)
+        namegen = sd_forge.modules.images.FilenameGenerator(p, parsed_infotexts[0]['Seed'], parsed_infotexts[0]['Prompt'], image, True)
         zip_filename = namegen.apply(shared.opts.grid_zip_filename_pattern or "[datetime]_[[model_name]]_[seed]-[seed_last]")
         zip_filepath = os.path.join(path, f"{zip_filename}.zip")
 

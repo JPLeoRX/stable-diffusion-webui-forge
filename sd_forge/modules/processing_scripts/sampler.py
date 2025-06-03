@@ -1,8 +1,8 @@
 import gradio as gr
 
-from modules import scripts, sd_samplers, sd_schedulers, shared
-from modules.infotext_utils import PasteField
-from modules.ui_components import FormRow, FormGroup
+from sd_forge.modules import scripts, sd_samplers, sd_schedulers, shared
+from sd_forge.modules.infotext_utils import PasteField
+from sd_forge.modules.ui_components import FormRow, FormGroup
 
 
 class ScriptSampler(scripts.ScriptBuiltinUI):

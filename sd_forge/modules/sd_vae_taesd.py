@@ -8,7 +8,7 @@ import os
 import torch
 import torch.nn as nn
 
-from modules import devices, paths_internal, shared
+from sd_forge.modules import devices, paths_internal, shared
 
 sd_vae_taesd_models = {}
 

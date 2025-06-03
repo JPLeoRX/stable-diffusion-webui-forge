@@ -11,7 +11,7 @@ from transformers.models.clip.modeling_clip import CLIPVisionModelOutput
 from annotator.util import HWC3
 from typing import Callable, Tuple, Union
 
-from modules import devices
+from sd_forge.modules import devices
 
 import contextlib
 

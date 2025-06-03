@@ -2,7 +2,7 @@ import dataclasses
 import os
 import gradio as gr
 
-from modules import errors, shared
+from sd_forge.modules import errors, shared
 
 
 @dataclasses.dataclass

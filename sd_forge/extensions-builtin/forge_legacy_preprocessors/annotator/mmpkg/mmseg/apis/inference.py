@@ -6,7 +6,7 @@ from annotator.mmpkg.mmcv.runner import load_checkpoint
 
 from annotator.mmpkg.mmseg.datasets.pipelines import Compose
 from annotator.mmpkg.mmseg.models import build_segmentor
-from modules import devices
+from sd_forge.modules import devices
 
 
 def init_segmentor(config, checkpoint=None, device=devices.get_device_for("controlnet")):

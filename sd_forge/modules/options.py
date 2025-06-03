@@ -5,9 +5,9 @@ from dataclasses import dataclass
 
 import gradio as gr
 
-from modules import errors
-from modules.shared_cmd_options import cmd_opts
-from modules.paths_internal import script_path
+from sd_forge.modules import errors
+from sd_forge.modules.shared_cmd_options import cmd_opts
+from sd_forge.modules.paths_internal import script_path
 
 
 class OptionInfo:

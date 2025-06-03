@@ -1,8 +1,8 @@
 import os
 import argparse
 
-from backend import utils
-from modules.paths_internal import models_path
+from sd_forge.backend import utils
+from sd_forge.modules.paths_internal import models_path
 from pathlib import Path
 
 

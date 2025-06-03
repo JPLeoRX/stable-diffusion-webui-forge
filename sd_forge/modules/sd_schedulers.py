@@ -1,10 +1,10 @@
 import dataclasses
 import torch
-import k_diffusion
+import sd_forge.k_diffusion.sampling
 import numpy as np
 from scipy import stats
 
-from modules import shared
+from sd_forge.modules import shared
 
 
 def to_d(x, sigma, denoised):
@@ -12,7 +12,7 @@ def to_d(x, sigma, denoised):
     return (x - denoised) / sigma
 
 
-k_diffusion.sampling.to_d = to_d
+sd_forge.k_diffusion.sampling.to_d = to_d
 
 
 @dataclasses.dataclass
@@ -211,9 +211,9 @@ def ays_32_sigmas(n, sigma_min, sigma_max, device='cpu'):
 schedulers = [
     Scheduler('automatic', 'Automatic', None),
     Scheduler('uniform', 'Uniform', uniform, need_inner_model=True),
-    Scheduler('karras', 'Karras', k_diffusion.sampling.get_sigmas_karras, default_rho=7.0),
-    Scheduler('exponential', 'Exponential', k_diffusion.sampling.get_sigmas_exponential),
-    Scheduler('polyexponential', 'Polyexponential', k_diffusion.sampling.get_sigmas_polyexponential, default_rho=1.0),
+    Scheduler('karras', 'Karras', sd_forge.k_diffusion.sampling.get_sigmas_karras, default_rho=7.0),
+    Scheduler('exponential', 'Exponential', sd_forge.k_diffusion.sampling.get_sigmas_exponential),
+    Scheduler('polyexponential', 'Polyexponential', sd_forge.k_diffusion.sampling.get_sigmas_polyexponential, default_rho=1.0),
     Scheduler('sgm_uniform', 'SGM Uniform', sgm_uniform, need_inner_model=True, aliases=["SGMUniform"]),
     Scheduler('kl_optimal', 'KL Optimal', kl_optimal),
     Scheduler('align_your_steps', 'Align Your Steps', get_align_your_steps_sigmas),

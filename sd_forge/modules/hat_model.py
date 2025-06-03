@@ -1,11 +1,11 @@
 import os
 import sys
 
-from modules import modelloader, devices
-from modules.shared import opts
-from modules.upscaler import Upscaler, UpscalerData
-from modules.upscaler_utils import upscale_with_model
-from modules_forge.utils import prepare_free_memory
+from sd_forge.modules import modelloader, devices
+from sd_forge.modules.shared import opts
+from sd_forge.modules.upscaler import Upscaler, UpscalerData
+from sd_forge.modules.upscaler_utils import upscale_with_model
+from sd_forge.modules_forge.utils import prepare_free_memory
 
 
 class UpscalerHAT(Upscaler):

@@ -7,10 +7,10 @@ import threading
 import re
 import json
 
-from modules import shared, errors, cache, scripts
-from modules.gitpython_hack import Repo
-from modules.paths_internal import extensions_dir, extensions_builtin_dir, script_path  # noqa: F401
-from modules_forge.config import always_disabled_extensions
+from sd_forge.modules import shared, errors, cache, scripts
+from sd_forge.modules.gitpython_hack import Repo
+from sd_forge.modules.paths_internal import extensions_dir, extensions_builtin_dir, script_path  # noqa: F401
+from sd_forge.modules_forge.config import always_disabled_extensions
 
 extensions: list[Extension] = []
 extension_paths: dict[str, Extension] = {}

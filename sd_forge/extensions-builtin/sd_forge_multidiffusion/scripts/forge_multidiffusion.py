@@ -1,5 +1,5 @@
 import gradio as gr
-from modules import scripts
+from sd_forge.modules import scripts
 
 from lib_multidiffusion.tiled_diffusion import TiledDiffusion
 

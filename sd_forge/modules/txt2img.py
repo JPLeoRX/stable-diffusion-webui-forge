@@ -1,15 +1,15 @@
 import json
 from contextlib import closing
 
-import modules.scripts
-from modules import processing, infotext_utils
-from modules.infotext_utils import create_override_settings_dict, parse_generation_parameters
-from modules.shared import opts
-import modules.shared as shared
-from modules.ui import plaintext_to_html
+import sd_forge.modules.scripts
+from sd_forge.modules import processing, infotext_utils
+from sd_forge.modules.infotext_utils import create_override_settings_dict, parse_generation_parameters
+from sd_forge.modules.shared import opts
+import sd_forge.modules.shared as shared
+from sd_forge.modules.ui import plaintext_to_html
 from PIL import Image
 import gradio as gr
-from modules_forge import main_thread
+from sd_forge.modules_forge import main_thread
 
 
 def txt2img_create_processing(id_task: str, request: gr.Request, prompt: str, negative_prompt: str, prompt_styles, n_iter: int, batch_size: int, cfg_scale: float, distilled_cfg_scale: float, height: int, width: int, enable_hr: bool, denoising_strength: float, hr_scale: float, hr_upscaler: str, hr_second_pass_steps: int, hr_resize_x: int, hr_resize_y: int, hr_checkpoint_name: str, hr_additional_modules: list, hr_sampler_name: str, hr_scheduler: str, hr_prompt: str, hr_negative_prompt, hr_cfg: float, hr_distilled_cfg: float, override_settings_texts, *args, force_enable_hr=False):
@@ -48,7 +48,7 @@ def txt2img_create_processing(id_task: str, request: gr.Request, prompt: str, ne
         override_settings=override_settings,
     )
 
-    p.scripts = modules.scripts.scripts_txt2img
+    p.scripts = sd_forge.modules.scripts.scripts_txt2img
     p.script_args = args
 
     p.user = request.username
@@ -95,7 +95,7 @@ def txt2img_upscale_function(id_task: str, request: gr.Request, gallery, gallery
     p.override_settings['save_images_before_highres_fix'] = False
 
     with closing(p):
-        processed = modules.scripts.scripts_txt2img.run(p, *p.script_args)
+        processed = sd_forge.modules.scripts.scripts_txt2img.run(p, *p.script_args)
 
         if processed is None:
             processed = processing.process_images(p)
@@ -125,7 +125,7 @@ def txt2img_function(id_task: str, request: gr.Request, *args):
     p = txt2img_create_processing(id_task, request, *args)
 
     with closing(p):
-        processed = modules.scripts.scripts_txt2img.run(p, *p.script_args)
+        processed = sd_forge.modules.scripts.scripts_txt2img.run(p, *p.script_args)
 
         if processed is None:
             processed = processing.process_images(p)

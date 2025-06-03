@@ -8,8 +8,8 @@ import torch
 
 from torch import nn
 from einops import rearrange, repeat
-from backend.attention import attention_function
-from backend.utils import fp16_fix, tensor2parameter
+from sd_forge.backend.attention import attention_function
+from sd_forge.backend.utils import fp16_fix, tensor2parameter
 
 
 def attention(q, k, v, pe):

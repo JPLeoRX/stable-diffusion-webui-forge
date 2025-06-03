@@ -7,8 +7,8 @@ import torch
 import platform
 
 from enum import Enum
-from backend import stream, utils
-from backend.args import args
+from sd_forge.backend import stream, utils
+from sd_forge.backend.args import args
 
 
 cpu = torch.device('cpu')
