@@ -34,6 +34,3 @@ where = ["."]
 include = ["sd_forge*"]
 exclude = ["tests*"]
 
-# optional console-script entry point example
-[project.scripts]
-sd-fg-launch = "sd_forge.launch:main"
